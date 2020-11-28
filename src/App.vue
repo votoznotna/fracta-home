@@ -1,13 +1,13 @@
 <template>
-      <div id="app">
-        <header>
-          <h1>Take-home Prompt</h1>
-        </header>
-        <main>
-          <Controls />
-          <MapboxMap />
-        </main>
-      </div>
+  <div id="app">
+    <header>
+      <h1>Take-home Prompt</h1>
+    </header>
+    <main>
+      <Controls />
+      <MapboxMap />
+    </main>
+  </div>
 </template>
 
 <script>
@@ -18,7 +18,7 @@ export default {
   name: "App",
   components: {
     MapboxMap,
-    Controls
+    Controls,
   },
 };
 </script>
@@ -30,7 +30,7 @@ export default {
   justify-content: center;
 }
 main {
-    position: relative;
-    padding: 0 5% 5%;
+  position: relative;
+  padding: 0 5% 5%;
 }
 </style>

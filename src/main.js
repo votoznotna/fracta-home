@@ -1,5 +1,5 @@
 import Vue from "vue";
-import store from './store' // import store from new directory
+import store from "./store"; // import store from new directory
 import App from "./App.vue";
 import "./styles/global.scss";
 
