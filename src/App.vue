@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header>
-      <h1>Take-home Prompt</h1>
+      <h1>Colored pipeline</h1>
     </header>
     <main>
       <Controls />

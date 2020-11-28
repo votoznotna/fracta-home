@@ -22,6 +22,6 @@ npm install
 npm start
 ```
 
-- Navigate http://localhost:8080/ (or first available after 8080) in browser and enjoy the run.
+- Navigate http://localhost:8080/ (or first available port after 8080) in browser and enjoy the run.
 
 ![Take-home Prompt Demo](demo/fracta.gif)
