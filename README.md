@@ -1,24 +1,22 @@
-# take-home
+## Getting Started
 
-## Project setup
+* Have [Git](https://git-scm.com/downloads) installed.
+* Have [Node](https://nodejs.org/en/download/) installed. 
+* Run the following command from where is planning to have the project installed: 
 ```
-yarn install
+git clone git@github.com:votoznotna/fracta-home.git
 ```
+```
+go fracta-home directory
+```
+* From the same folder run
+```
+npm install
+```
+```
+npm start
+``` 
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+* Navigate http://localhost:8080/ (or first available after 8080) in browser and enjoy the run.
 
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+![Take-home Prompt Demo](demo/fracta.gif)

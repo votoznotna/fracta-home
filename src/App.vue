@@ -1,28 +1,36 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+      <div id="app">
+        <header>
+          <h1>Take-home Prompt</h1>
+        </header>
+        <main>
+          <Controls />
+          <MapboxMap />
+        </main>
+      </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import MapboxMap from "./components/MapboxMap.vue";
+import Controls from "./components/Controls.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    MapboxMap,
+    Controls
+  },
+};
 </script>
 
-<style>
+<style lang="scss" scoped>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+main {
+    position: relative;
+    padding: 0 5% 5%;
 }
 </style>
