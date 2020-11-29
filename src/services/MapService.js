@@ -22,8 +22,11 @@ export const getRandomYearFromRange = () => {
 
 export const pipeGroupNames = ["year", "diameter", "material"];
 
-export const get_random_color = () =>
-  "#" + Math.round(Math.random() * 0xffffff).toString(16);
+  export const get_random_color = () => {
+    let hex = (Math.round(Math.random()*0xffffff)).toString(16);
+    while (hex.length < 6) hex = `0${hex}`;
+    return `#${hex}`;
+}
 
 export const getPipeDataByGroupName = (groupName, pipeData, pipeGroups) => {
   const group = pipeGroups[groupName]; // object of values with same groupName value
