@@ -1,4 +1,4 @@
-import api, { getPipeGroups } from "@/services/MapService";
+import api, { getPipeGroups } from '@/services/MapService';
 
 export const namespaced = true;
 
@@ -19,20 +19,20 @@ export const getters = {
 export const actions = {
   async createMap({ commit }, mapId) {
     try {
-      commit("setLoading", true);
+      commit('setLoading', true);
       const response = await api.getPipes();
       const data = response.data;
-      commit("setPipes", data);
+      commit('setPipes', data);
       const map = api.createMap(mapId);
-      commit("setMap", map);
-      api.loadDataToMap(map, data, commit);
+      commit('setMap', map);
+      api.loadDataToMap(map, data);
       const groups = getPipeGroups(data.features);
-      commit("setGroups", groups);
-      // commit('setLoading', false);
+      commit('setGroups', groups);
+      commit('setLoading', false);
     } catch {
-      commit("setPipes", {});
-      console.log("Error of loading pipeline data");
-      commit("setLoading", false);
+      commit('setPipes', {});
+      console.log('Error of loading pipeline data');
+      commit('setLoading', false);
     }
   },
   updateMap(map, data) {

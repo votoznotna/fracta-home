@@ -1,5 +1,5 @@
-import axios from "axios";
-import mapboxgl from "mapbox-gl";
+import axios from 'axios';
+import mapboxgl from 'mapbox-gl';
 
 const center = [-122.27108, 37.55855]; // Foster City, CA
 const zoom = 13;
@@ -8,11 +8,11 @@ const minYear = 1960;
 const maxYear = 2020;
 
 const apiClient = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: 'http://localhost:3000',
   withCredentials: false,
   headers: {
-    Accept: "application/json",
-    "Content-Type": "application/json",
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
   },
 });
 
@@ -20,13 +20,13 @@ export const getRandomYearFromRange = () => {
   return Math.round(Math.random() * (maxYear - minYear)) + minYear;
 };
 
-export const pipeGroupNames = ["year", "diameter", "material"];
+export const pipeGroupNames = ['year', 'diameter', 'material'];
 
-  export const get_random_color = () => {
-    let hex = (Math.round(Math.random()*0xffffff)).toString(16);
-    while (hex.length < 6) hex = `0${hex}`;
-    return `#${hex}`;
-}
+export const get_random_color = () => {
+  let hex = Math.round(Math.random() * 0xffffff).toString(16);
+  while (hex.length < 6) hex = `0${hex}`;
+  return `#${hex}`;
+};
 
 export const getPipeDataByGroupName = (groupName, pipeData, pipeGroups) => {
   const group = pipeGroups[groupName]; // object of values with same groupName value
@@ -84,7 +84,7 @@ export const getPipeGroups = (features = []) => {
       ret[groupName] = ret[groupName] || {};
       const value = item.properties[key];
       ret[groupName][value] = ret[groupName][value] || {};
-      if (typeof ret[groupName][value].color === "undefined") {
+      if (typeof ret[groupName][value].color === 'undefined') {
         ret[groupName][value].color = get_random_color();
       }
       ret[groupName][value].indexes = ret[groupName][value].indexes || [];
@@ -96,35 +96,34 @@ export const getPipeGroups = (features = []) => {
 
 export default {
   getPipes() {
-    return apiClient.get("/pipes");
+    return apiClient.get('/pipes');
   },
   updateMapSource(map, data) {
-    map.getSource("lines").setData(data);
+    map.getSource('lines').setData(data);
   },
-  loadDataToMap(map, data, commit) {
-    map.on("load", function () {
-      map.addSource("lines", {
-        type: "geojson",
+  loadDataToMap(map, data) {
+    map.on('load', function () {
+      map.addSource('lines', {
+        type: 'geojson',
         data: data,
       });
       map.addLayer({
-        id: "lines",
-        type: "line",
-        source: "lines",
+        id: 'lines',
+        type: 'line',
+        source: 'lines',
         paint: {
-          "line-width": 5,
-          "line-color": ["get", "color"],
+          'line-width': 5,
+          'line-color': ['get', 'color'],
         },
       });
-      commit("setLoading", false);
     });
   },
   createMap(mapId) {
     const map = new mapboxgl.Map({
       accessToken:
-        "pk.eyJ1IjoiZnJhY3RhdGVzdHMiLCJhIjoiY2tnaWd3NW10MDAzNDJzcnJuNzVrNGd5cSJ9.6pV_QFxNJE22pj4-uKCjpQ",
+        'pk.eyJ1IjoiZnJhY3RhdGVzdHMiLCJhIjoiY2tnaWd3NW10MDAzNDJzcnJuNzVrNGd5cSJ9.6pV_QFxNJE22pj4-uKCjpQ',
       container: mapId,
-      style: "mapbox://styles/mapbox/streets-v11",
+      style: 'mapbox://styles/mapbox/streets-v11',
       minzoom: 5,
       center: center,
       zoom: zoom,
